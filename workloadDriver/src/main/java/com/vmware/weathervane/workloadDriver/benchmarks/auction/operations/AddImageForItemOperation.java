@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -129,7 +130,7 @@ public class AddImageForItemOperation extends AuctionOperation implements NeedsL
 	            return null;
 	        }
 
-	        File tempFile = File.createTempFile(String.valueOf(in.hashCode()), ".tmp");
+	        File tempFile = Files.createTempFile(String.valueOf(in.hashCode()), ".tmp").toFile();
 			tempFile.deleteOnExit();
 
 			FileOutputStream out = new FileOutputStream(tempFile);
